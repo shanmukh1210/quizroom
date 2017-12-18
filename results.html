@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+  
+  
+  </style>
+  
+
+
+</head>
+         
+   
+<body>
+<h1 class="primary"><center>Results Page </center></h1>
+<!--<button type="button" class="btn btn-primary btn-lg" style="float:right;"> Finish</button> -->
+
+ 
+
+<div class="result" style="width:10px">
+ <div class="first" id='response' style="width:10px">
+ </div>
+ </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
+<script>
+	function executeQuery() {
+        $.ajax({
+            type: 'POST',
+            url: 'testing.php', 
+            data: 'Hello'
+        })
+        .done(function(data){
+             
+            // show the response
+            $('#response').html(data);
+             
+        })
+        .fail(function() {
+         
+            // just in case posting your form failed
+            alert( "Posting failed." );
+             
+        });
+		
+  
+ 
+}
+
+$(document).ready(function() {
+  setInterval(executeQuery,2000);
+});
+</script>
+ 
+</body>
+</html>
